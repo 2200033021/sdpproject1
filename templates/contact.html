@@ -1,0 +1,126 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Custom Title</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f9f9f9; /* Light gray background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-horizontal {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Slight box shadow for depth */
+            transition: box-shadow 0.3s; /* Add transition for a subtle effect */
+        }
+        .form-horizontal:hover {
+            box-shadow: 0px 0px 30px rgba(52, 152, 219, 0.8); /* Glowing effect on hover */
+        }
+        .form-horizontal h1 {
+            color: #34495e; /* Dark blue-gray title color */
+            text-align: center;
+            font-size: 28px; /* Larger font size */
+        }
+        .form-horizontal .control-group {
+            margin-bottom: 25px; /* Increased margin */
+        }
+        .form-horizontal .control-label {
+            font-weight: bold;
+            color: #2c3e50; /* Darker blue-gray label color */
+            font-size: 16px; /* Slightly larger font size */
+        }
+        .form-horizontal .controls {
+            margin-left: 150px; /* Increased margin */
+        }
+        .form-horizontal input[type="text"],
+        .form-horizontal textarea {
+            width: 350px; /* Wider input fields */
+            padding: 12px; /* Increased padding */
+            border: 2px solid #3498db; /* Dark blue border */
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions */
+        }
+        .form-horizontal input[type="text"]:focus,
+        .form-horizontal textarea:focus {
+            outline: none;
+            border-color: #2980b9; /* Lighter blue on focus */
+            box-shadow: 0px 0px 10px rgba(41, 128, 185, 0.5); /* Light box shadow on focus */
+        }
+        .form-horizontal .btn-primary {
+            background-color: #3498db; /* Dark blue button background */
+            border-color: #2c81ba; /* Darker blue border color */
+            color: #ffffff;
+            padding: 12px 25px; /* Increased padding */
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px; /* Larger font size */
+            transition: background-color 0.3s;
+        }
+        .form-horizontal .btn-primary:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+    </style>
+</head>
+{% block body %}
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form class="form-horizontal" action="{% url 'contactfunction' %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <h1>Feedback</h1>
+                    <div class="control-group">
+                        <!-- Username -->
+                        <label class="control-label" for="firstname">First Name</label>
+                        <div class="controls">
+                            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <!-- Username -->
+                        <label class="control-label" for="lastname">Last Name</label>
+                        <div class="controls">
+                            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <!-- E-mail -->
+                        <label class="control-label" for="email">E-mail</label>
+                        <div class="controls">
+                            <input type="text" id="email" name="email" placeholder="Enter your email address">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <!-- Comment -->
+                        <label class="control-label" for="comment">Comment</label>
+                        <div class="controls">
+                            <textarea id="comment" name="comment" placeholder="Enter your comment" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <!-- Button -->
+                        <div class="controls">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+<div>
+    <h6>Source (Register Form) Available in this link - https://bootsnipp.com/snippets/k7A</h6>
+</div>
+{% endblock %}
+
+</html>
